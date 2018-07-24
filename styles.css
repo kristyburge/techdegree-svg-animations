@@ -28,8 +28,10 @@ a {
   font-weight: 700;
 }
 
-a:hover {
+a:hover,
+a:hover .nav-icon {
   color: #111;
+  fill: currentColor;
 }
 
 header {
