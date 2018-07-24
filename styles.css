@@ -48,6 +48,15 @@ header nav ul li {
   margin-right: 20px;
 }
 
+.logo {
+  height: 120px;
+  width: 140px;
+}
+
+.st1 {
+  display: none;
+}
+
 main {
   padding-top: 50px;
 }
@@ -61,4 +70,14 @@ footer {
   margin-top: 100px;
   padding-bottom: 30px;
   color: #ba8058;
+}
+
+@media screen and (min-width: 425px) {
+  /* put the logo text back and remove the h1 */
+  .logo-text {
+    display: none;
+  }
+  .st1 {
+    display: inline;
+  }
 }
