@@ -65,6 +65,44 @@ main h2 {
   font-size: 28px;
 }
 
+.colors {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.corgi-container {
+  margin: 0 15px;
+}
+
+.corgi--sable {
+  color: #b87d5c;
+  fill: currentColor;
+}
+
+.corgi--fawn {
+  color: #e8a982;
+  fill: currentColor;
+}
+
+.corgi--red {
+  color: #824a2a;
+  fill: currentColor;
+}
+
+.corgi--stone {
+  color: #51575c;
+  fill: currentColor;
+}
+
+.coat-colors {
+  text-align: center;
+  color: #ba8058;
+  margin-top: 0;
+  margin-right: 40px;
+}
+
 footer {
   width: 100%;
   margin-top: 100px;
