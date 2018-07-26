@@ -5,6 +5,7 @@ body {
   font-family: 'Roboto Slab', serif;
   font-weight: 300;
   color: #111;
+  font-size: 16px;
   background: #edeff0 url('svgs/background.svg');
 }
 
@@ -22,16 +23,33 @@ p {
   text-align: left;
 }
 
-a {
+.nav__item {
+  text-align: center;
+  border-bottom: 2px solid transparent;
+  padding: 0;
+  margin: 20px 10px;
+  transition-property: transform, border-bottom;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.nav__item a {
   text-decoration: none;
   color: #39add1;
   font-weight: 700;
 }
 
-a:hover,
-a:hover .nav-icon {
+.nav__item:hover a {
   color: #111;
+}
+
+.nav__item:hover a .nav-icon {
   fill: currentColor;
+}
+
+.nav__item:hover {
+  border-bottom: 2px solid currentColor;
+  transform: scale(1.2);
 }
 
 header {
@@ -49,58 +67,97 @@ header nav ul li {
 }
 
 .logo {
-  height: 120px;
-  width: 140px;
+  perspective: 500px;
 }
 
-.st1 {
+.svg * {
+  transform-origin: 70.4px 69.9px;
+}
+
+.svg {
+  height: 120px;
+  width: 140px;
+  padding: 20px;
+  perspective: 1000px;
+  transform-style: preserve-3d; /* allow child elements to inherit 3d */
+  transition: transform 1s ease-out;
+}
+
+.svg:hover {
+  animation: bouncy 2s linear;
+}
+
+.svg__text {
   display: none;
 }
 
+.st1 {
+  stroke: #eaaa7f;
+  stroke-width: 1;
+  stroke-dasharray: 1042;
+  stroke-dashoffset: 1042;
+  animation: offset 1s linear forwards,
+             fill 1s 1s forwards,
+             draw 0.9s forwards;
+}
+
+.svg__paw {
+  animation: stamp 1s ease-out backwards;
+  animation-delay: .15s;
+}
+
+.svg__outer {
+  animation-delay: 0.1s;
+}
+
 main {
-  padding-top: 50px;
+  padding: 50px 2em 0;
 }
 
 main h2 {
   font-size: 28px;
 }
 
-.colors {
+.corgidog {
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.corgi-container {
+.corgidog__container {
   margin: 0 15px;
 }
 
-.corgi--sable {
-  color: #b87d5c;
-  fill: currentColor;
+.corgidog__image:hover {
+  transform: translateY(0);
 }
 
-.corgi--fawn {
-  color: #e8a982;
-  fill: currentColor;
-}
-
-.corgi--red {
-  color: #824a2a;
-  fill: currentColor;
-}
-
-.corgi--stone {
-  color: #51575c;
-  fill: currentColor;
-}
-
-.coat-colors {
+.corgidog__desc {
   text-align: center;
   color: #ba8058;
   margin-top: 0;
   margin-right: 40px;
+}
+
+.corgidog--sable {
+  color: #b87d5c;
+  fill: currentColor;
+}
+
+.corgidog--fawn {
+  color: #e8a982;
+  fill: currentColor;
+}
+
+.corgidog--red {
+  color: #824a2a;
+  fill: currentColor;
+}
+
+.corgidog--stone {
+  color: #51575c;
+  fill: currentColor;
 }
 
 footer {
@@ -110,12 +167,81 @@ footer {
   color: #ba8058;
 }
 
+/* ================
+   KEYFRAMES
+ =============== */
+
+@keyframes stamp {
+  0% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes draw {
+  0% {
+    transform: translateY(80px) rotateZ(-45deg);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: rotateZ(-180deg);
+  }
+  100% {
+    transform: rotateZ(-360deg);
+  }
+}
+
+@keyframes offset {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fill {
+  100% {
+    fill: #eaaa7f;
+  }
+}
+
+@keyframes bouncy {
+  0% {
+    transform: translate3d(-25px, -25px, 30px);
+  }
+  15% {
+    transform: translate3d(25px, -30px, 40px);
+  }
+  40% {
+    transform: translate3d(-30px, 25px, 50px);
+  }
+  90% {
+    transform: translate3d(30px, 33px, 70px);
+  }
+}
+
+
+/* ================
+   MEDIA QUERIES
+ =============== */
+
 @media screen and (min-width: 425px) {
-  /* put the logo text back and remove the h1 */
-  .logo-text {
+  .logo__text {
     display: none;
   }
-  .st1 {
+  .svg__text {
     display: inline;
   }
+  .nav__item {
+    padding: 7px 0;
+  }
+
 }
