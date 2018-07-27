@@ -110,9 +110,9 @@ header nav ul li {
 
 .st1 {
   stroke: #eaaa7f;
-  stroke-width: 1;
-  stroke-dasharray: 1042;
-  stroke-dashoffset: 1042;
+  stroke-width: 1px;
+  stroke-dasharray: 1042px;
+  stroke-dashoffset: 1042px;
   -webkit-animation: offset 1s linear forwards, fill 1s 1s forwards, draw 0.9s forwards;
   animation: offset 1s linear forwards, fill 1s 1s forwards, draw 0.9s forwards;
 }
